@@ -14,19 +14,5 @@
     }, 10);
     </script>
   {{/unless}}
-  {{#ifCond currentUser.trust_level "<" 3}}
-    <script type="text/javascript">
-    setTimeout(function() {
-      var icon = $('i.fa-envelope');
-      var a = icon.parent().html('').addClass('disabled');
-      a.append(icon);
-      a.append(I18n.t('user.desktop_notifications.perm_denied_btn'));
-
-      a.click(function(e) {
-        e.stopPropagation();
-      })
-    }, 10);
-    </script>
-  {{/ifCond}}
 {{/if}}
 </div>
