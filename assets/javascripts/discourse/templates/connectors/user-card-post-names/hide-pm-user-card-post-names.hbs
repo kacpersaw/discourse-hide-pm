@@ -14,7 +14,7 @@
     }, 10);
     </script>
   {{/unless}}
-  {{#unless currentUser.trust_level >= 3}}
+  {{#ifCond currentUser.trust_level "<" 3}}
     <script type="text/javascript">
     setTimeout(function() {
       var icon = $('i.fa-envelope');
@@ -27,6 +27,6 @@
       })
     }, 10);
     </script>
-  {{/unless}}
+  {{/if}}
 {{/if}}
 </div>

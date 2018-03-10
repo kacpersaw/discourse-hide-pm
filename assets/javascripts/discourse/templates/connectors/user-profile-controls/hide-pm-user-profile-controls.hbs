@@ -12,7 +12,7 @@
       })
     </script>
   {{/unless}}
-  {{#unless currentUser.trust_level >= 3}}
+  {{#ifCond currentUser.trust_level "<" 3}}
     <script type="text/javascript">
       var icon = $('i.fa-envelope');
       var a = icon.parent().html('').addClass('disabled');
@@ -23,6 +23,6 @@
         e.stopPropagation();
       })
     </script>
-  {{/unless}}
+  {{/ifCond}}
 {{/if}}
 </li>
