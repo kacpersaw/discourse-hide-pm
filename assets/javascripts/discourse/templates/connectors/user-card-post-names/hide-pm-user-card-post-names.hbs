@@ -1,18 +1,20 @@
 <div>
 {{#if user.admin}}
   {{#unless currentUser.staff}}
-    <script type="text/javascript">
-    setTimeout(function() {
-      var icon = $('i.fa-envelope');
-      var a = icon.parent().html('').addClass('disabled');
-      a.append(icon);
-      a.append(I18n.t('user.desktop_notifications.perm_denied_btn'));
+    {{#unless currentUser.is_trusted}}
+      <script type="text/javascript">
+      setTimeout(function() {
+        var icon = $('i.fa-envelope');
+        var a = icon.parent().html('').addClass('disabled');
+        a.append(icon);
+        a.append(I18n.t('user.desktop_notifications.perm_denied_btn'));
 
-      a.click(function(e) {
-        e.stopPropagation();
-      })
-    }, 10);
-    </script>
+        a.click(function(e) {
+          e.stopPropagation();
+        })
+      }, 10);
+      </script>
+    {{/unless}}
   {{/unless}}
 {{/if}}
 </div>
